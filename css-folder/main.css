@@ -1,3 +1,11 @@
+/* Start Variables Section */
+:root {
+  --padding:100px;
+  --main-color: #19c8fa;
+  --overlay-color:#00000094;
+  --sub-color:#0f748fb3;
+}
+/* End Variables Section */
 /* Start Global section */
 * {
   -moz-box-sizing: border-box;
@@ -15,6 +23,7 @@ body  {
 .container  {
   padding: 0 15px;
   margin: 0 auto;
+  position: relative;
 }
 @media (min-width:768px) {
   .container  {
@@ -79,15 +88,6 @@ body  {
   background-color: var(--overlay-color);
 }
 /* End Global section */
-/* Start Variables Section */
-:root {
-  --padding:100px;
-  --main-color: #19c8fa;
-  --overlay-color:#00000094;
-  --sub-color:#0f748fb3;
-}
-/* End Variables Section */
-
 /* Start Header */
 header  {
   position: absolute;
@@ -277,9 +277,14 @@ header .container .list .search {
 }
 .services .boxes  {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-column-gap: 120px;
   grid-row-gap: 65px;
+}
+@media (max-width:400px) {
+  .services .boxes  {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 .services .box  {
   display: flex;
@@ -376,6 +381,7 @@ header .container .list .search {
   padding: 10px;
   margin-right: 5px;
   transition-duration: 0.3s;
+  cursor: pointer;
 }
 .portfolio .container .focus,
 .portfolio .container .shuffles p:hover  {
@@ -386,6 +392,11 @@ header .container .list .search {
 .portfolio .boxes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+@media (max-width:767px) {
+  .portfolio .boxes {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 .portfolio .box {
   position: relative;
@@ -678,3 +689,341 @@ header .container .list .search {
   transform: translate(-50%, -160%);
 }
 /* End Skills */
+/* Start Quote */
+.quote  {
+  padding-top: var(--padding);
+  padding-bottom: var(--padding);
+  background-image: url(../photos/quote.jpg);
+  background-size: cover;
+  position: relative;
+}
+.quote .overlay {
+  background-color: #000000cf;
+}
+.quote .container {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  position: relative;
+}
+.quote .container q  {
+  display: block;
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+.quote .container q::before  {
+  font-family: "Font Awesome 5 Free";
+  content: '\f10d';
+  font-weight: 900;
+  font-size: 25px;
+  margin-right: 10px;
+  position: relative;
+  top: -10px;
+}
+.quote .container q::after  {
+  font-family: "Font Awesome 5 Free";
+  content: '\f10e';
+  font-weight: 900;
+  font-size: 25px;
+  margin-left: 10px;
+  position: relative;
+  top: 10px;
+}
+
+/* End Quote */
+/* start Pricing */
+.pricing  {
+  padding-top: var(--padding);
+  padding-bottom: var(--padding);
+}
+.pricing .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+.pricing .plan  {
+  background-color: #fcfcfd;
+  border-top: 1px solid var(--main-color);
+}
+.pricing .plan .head  {
+  padding: 40px 20px;
+  border-bottom: 1px solid var(--main-color);
+}
+.pricing .plan .head h3  {
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.pricing .plan .head p  {
+  position: relative;
+  font-size: 60px;
+  font-weight: 700;
+  width: fit-content;
+  margin: 0 auto;
+}
+.pricing .plan .head p::before  {
+  content: '$';
+  position: absolute;
+  font-size: 25px;
+  top: -12px;
+  left: -30px;
+  font-weight: normal;
+}
+.pricing .plan .head p::after {
+  content: '/Mo';
+  position: absolute;
+  font-size: 20px;
+  right: -10px;
+  font-weight: 700;
+  bottom: 8px;
+  right: -45px;
+}
+.pricing .plan li {
+  position: relative;
+  list-style: none;
+  padding: 25px;
+}
+.pricing .plan li:not(:last-child):after  {
+  content: '';
+  position: absolute;
+  height: 1px;
+  background-color: var(--main-color);
+  width: 55%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.pricing .plan li:last-child  {
+  border-bottom: 1px solid var(--main-color);
+}
+.pricing button {
+  padding: 15px 20px;
+  background-color: white;
+  margin: 40px 0;
+  border: 1px solid var(--main-color);
+  color: blueviolet;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.pricing button:hover {
+  background-color: var(--main-color);
+}
+.pricing .contact p {
+  width: fit-content;
+  margin: 30px auto 25px;
+  text-transform: capitalize;
+  font-size: 20px;
+  padding: 0 15px;
+}
+.pricing .contact a {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 15px 25px;
+  border-radius: 4px;
+  background-color: var(--main-color);
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+/* End Pricing */
+/* Start Subscibtion */
+.subscribe  {
+  padding-top: var(--padding);
+  padding-bottom: var(--padding);
+  position: relative;
+  background-image: url("../photos/subscribe.jpg");
+  background-size: cover;
+}
+.subscribe .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+@media (max-width:991px) {
+  .subscribe .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.subscribe .container form  {
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  position: relative;
+}
+.subscribe .container input[type="email"] {
+  padding: 20px 20px 20px 60px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-right: none;
+  width: calc(100% - 130px);
+  caret-color: var(--main-color);
+}
+.subscribe .container input[type="email"]::placeholder  {
+  color: white;
+}
+.subscribe .container i {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: x-large;
+}
+.subscribe .container input[type="submit"] {
+  width: 130px;
+  background-color: var(--main-color);
+  padding: 15px;
+  color: white;
+  border: 1px solid white;
+  border-left: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.subscribe .container input[type="email"]:focus,
+.subscribe .container input[type="submit"]:focus  {
+  outline: none;
+  color:aquamarine;
+}
+.subscribe .container p {
+  margin-left: 40px;
+  line-height: 2;
+}
+@media (max-width:991px) {
+  .subscribe .container p {
+    margin-top: 30px;
+  }
+}
+/* End Subscibtion */
+/* Start Contact */
+.contact-sec  {
+  padding-top: var(--padding);
+  padding-bottom: var(--padding);
+}
+.contact-sec .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media (max-width:766px) {
+  .contact-sec .content {
+    flex-direction: column;
+  }
+}
+.contact-sec .content form  {
+  flex-basis: 60%;
+}
+.contact-sec form input:not([type="submit"]) {
+  display: block;
+  width: 100%;
+  padding: 20px 10px;
+  margin-bottom: 40px;
+  border: 1px solid #cfcfcf;
+}
+.contact-sec form textarea  {
+  display: block;
+  width: 100%;
+  height: 150px;
+  padding: 20px 10px;
+  border: 1px solid #cfcfcf;
+  resize: none;
+}
+.contact-sec form input[type="submit"]  {
+  display: block;
+  text-transform: uppercase;
+  font-size: large;
+  justify-self: flex-end;
+  padding: 20px;
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  margin-top: 40px;
+  cursor: pointer;
+}
+@media (max-width:766px) {
+  .contact-sec form input[type="submit"]  {
+    justify-self: center;
+  }
+}
+.contact-sec input:focus,
+.contact-sec textarea:focus  {
+  outline: none;
+}
+.contact-sec .content .info {
+  flex-basis: 35%;
+}
+@media (max-width:766px) {
+  .contact-sec .content .info {
+    margin-top: 60px;
+    text-align: center;
+  }
+}
+.contact-sec .info h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.contact-sec .info .phone {
+  margin-bottom: 90px;
+}
+.contact-sec .info .phone p {
+  color: var(--sub-color);
+  margin-bottom: 10px;
+}
+.contact-sec .info .place p {
+  color: var(--sub-color);
+  margin-bottom: 10px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+/* End Contact */
+/* Start Footer */
+footer  {
+  padding-top: calc(var(--padding) - 30px);
+  padding-bottom: calc(var(--padding) - 30px);
+  background-image: url("../photos/subscribe.jpg");
+  background-size: cover;
+  position: relative;
+  text-transform: uppercase;
+}
+footer .container {
+  color: white;
+  text-align: center;
+}
+footer .overlay {
+  background-color: #000000b8;
+}
+footer .container img {
+  width: 130px;
+}
+footer .container > h2 {
+  width: fit-content;
+  margin: 30px auto;
+  padding: 25px;
+  border-bottom: 1px solid white;
+}
+footer .container .icons  {
+  display: flex;
+  width: 181px;
+  max-width: 100%;
+  margin: 0 auto 75px;
+  justify-content: space-between;
+}
+footer .container .icons i  {
+  transition-duration: 0.3s;
+}
+footer .container .icons i:hover  {
+  color: var(--main-color);
+  cursor: pointer;
+}
+footer .container p {
+  text-transform: capitalize;
+  font-size: 17px;
+}
+footer .container p span {
+  color: var(--main-color);
+  font-weight: bold;
+}
+/* End Footer */
